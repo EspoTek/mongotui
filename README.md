@@ -44,23 +44,24 @@ mongotui --help
 
 ## Installation
 
-### MacOS
-If you have HomeBrew installed, use the tap shown below.
+### macOS & Linux (latest build of this fork)
+
+Every push to `main` is built for macOS and Linux (amd64 and arm64) by GitHub Actions and published
+to the rolling `latest` release. To download and install the right binary for your machine:
+
+```bash
+curl -fsSL "https://github.com/EspoTek/mongotui/releases/latest/download/mongotui-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m | sed -e 's/x86_64/amd64/' -e 's/aarch64/arm64/').tar.gz" | tar -xz
+sudo mv ./mongotui /usr/local/bin/mongotui
+```
+
+### Homebrew (upstream release)
+
+The upstream project publishes to a Homebrew tap. Note that this installs kreulenk's release,
+which does not include this fork's changes.
 
 ```bash
 brew tap kreulenk/brew
 brew install mongotui
-```
-
-### Linux
-Navigate to the Releases section of mongotui's GitHub repository and download the latest tar for your
-processor architecture. Then, untar the executable and move it to `/usr/local/bin/mongotui`.
-
-E.g.
-```
-curl -OL https://github.com/kreulenk/mongotui/releases/download/v1.6.1/mongotui-linux-amd64.tar.gz
-tar -xzvf mongotui-linux-amd64.tar.gz
-mv ./mongotui /usr/local/bin/mongotui
 ```
 
 ### Build From Source
